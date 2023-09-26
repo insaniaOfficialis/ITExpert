@@ -1,0 +1,531 @@
+{
+	"info": {
+		"_postman_id": "fb782c66-4458-4eb2-a240-e4be23185ec5",
+		"name": "ITExpert",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16066964"
+	},
+	"item": [
+		{
+			"name": "AddCode",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"12\": \"value12\"\r\n    },\r\n    {\r\n        \"13\": \"value12\"\r\n    },\r\n    {\r\n        \"11\": \"value11\"\r\n    },\r\n    {\r\n        \"1\": \"value1\"\r\n    },\r\n    {\r\n        \"5\": \"value2\"\r\n    },\r\n    {\r\n        \"10\": \"value32\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}{{code}}",
+					"host": [
+						"{{url}}{{code}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"12\": \"value12\"\r\n    },\r\n    {\r\n        \"11\": \"value11\"\r\n    },\r\n    {\r\n        \"1\": \"value1\"\r\n    },\r\n    {\r\n        \"5\": \"value2\"\r\n    },\r\n    {\r\n        \"10\": \"value32\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}{{code}}",
+							"host": [
+								"{{url}}{{code}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Sep 2023 07:45:59 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true\n}"
+				},
+				{
+					"name": "BadRequest",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    \r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}{{code}}",
+							"host": [
+								"{{url}}{{code}}"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Sep 2023 07:46:13 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"error\": {\n        \"code\": 400,\n        \"message\": \"Не удалось десериализовать запрос\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "GetCode",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}{{code}}?sort[0].SortKey=value&sort[1].SortKey=code&sort[0].IsAscending=false&sort[1].IsAscending=true",
+					"host": [
+						"{{url}}{{code}}"
+					],
+					"query": [
+						{
+							"key": "sort[0].SortKey",
+							"value": "value"
+						},
+						{
+							"key": "sort[1].SortKey",
+							"value": "code"
+						},
+						{
+							"key": "sort[0].IsAscending",
+							"value": "false"
+						},
+						{
+							"key": "sort[1].IsAscending",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}{{code}}?sort[0].SortKey=value&sort[1].SortKey=number&sort[0].IsAscending=false&sort[1].IsAscending=false",
+							"host": [
+								"{{url}}{{code}}"
+							],
+							"query": [
+								{
+									"key": "sort[0].SortKey",
+									"value": "value"
+								},
+								{
+									"key": "sort[1].SortKey",
+									"value": "number"
+								},
+								{
+									"key": "sort[0].IsAscending",
+									"value": "false"
+								},
+								{
+									"key": "sort[1].IsAscending",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Sep 2023 08:14:34 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"items\": [\n        {\n            \"orderNumber\": 3,\n            \"code\": 10,\n            \"value\": \"value32\"\n        },\n        {\n            \"orderNumber\": 2,\n            \"code\": 5,\n            \"value\": \"value2\"\n        },\n        {\n            \"orderNumber\": 6,\n            \"code\": 13,\n            \"value\": \"value12\"\n        },\n        {\n            \"orderNumber\": 5,\n            \"code\": 12,\n            \"value\": \"value12\"\n        },\n        {\n            \"orderNumber\": 4,\n            \"code\": 11,\n            \"value\": \"value11\"\n        },\n        {\n            \"orderNumber\": 1,\n            \"code\": 1,\n            \"value\": \"value1\"\n        }\n    ],\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "GetCodeBd",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}{{code}}Bd?sortKey=value&isAscending=false",
+					"host": [
+						"{{url}}{{code}}Bd"
+					],
+					"query": [
+						{
+							"key": "sortKey",
+							"value": "value"
+						},
+						{
+							"key": "isAscending",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}{{code}}Bd?sortKey=value&isAscending=true",
+							"host": [
+								"{{url}}{{code}}Bd"
+							],
+							"query": [
+								{
+									"key": "sortKey",
+									"value": "value"
+								},
+								{
+									"key": "isAscending",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Sep 2023 09:55:07 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"items\": [\n        {\n            \"orderNumber\": 1,\n            \"code\": 1,\n            \"value\": \"value1\"\n        },\n        {\n            \"orderNumber\": 4,\n            \"code\": 11,\n            \"value\": \"value11\"\n        },\n        {\n            \"orderNumber\": 5,\n            \"code\": 12,\n            \"value\": \"value12\"\n        },\n        {\n            \"orderNumber\": 6,\n            \"code\": 13,\n            \"value\": \"value12\"\n        },\n        {\n            \"orderNumber\": 2,\n            \"code\": 5,\n            \"value\": \"value2\"\n        },\n        {\n            \"orderNumber\": 3,\n            \"code\": 10,\n            \"value\": \"value32\"\n        }\n    ],\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "GetClients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}{{client}}?count=2",
+					"host": [
+						"{{url}}{{client}}"
+					],
+					"query": [
+						{
+							"key": "count",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SuccessFullList",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}{{client}}",
+							"host": [
+								"{{url}}{{client}}"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Sep 2023 10:27:23 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"items\": [\n        {\n            \"clientName\": \"Васильев\",\n            \"countContacts\": 2\n        },\n        {\n            \"clientName\": \"Петров\",\n            \"countContacts\": 1\n        },\n        {\n            \"clientName\": \"Сидоров\",\n            \"countContacts\": 3\n        }\n    ],\n    \"success\": true\n}"
+				},
+				{
+					"name": "SuccessWithFilterByCount",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}{{client}}?count=2",
+							"host": [
+								"{{url}}{{client}}"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Sep 2023 10:27:51 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"items\": [\n        {\n            \"clientName\": \"Сидоров\",\n            \"countContacts\": 3\n        }\n    ],\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "GetClientsBd",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}{{client}}Bd?count=2",
+					"host": [
+						"{{url}}{{client}}Bd"
+					],
+					"query": [
+						{
+							"key": "count",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SuccessFullList",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}{{client}}Bd",
+							"host": [
+								"{{url}}{{client}}Bd"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Sep 2023 10:41:48 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"items\": [\n        {\n            \"clientName\": \"Васильев\",\n            \"countContacts\": 2\n        },\n        {\n            \"clientName\": \"Петров\",\n            \"countContacts\": 1\n        },\n        {\n            \"clientName\": \"Сидоров\",\n            \"countContacts\": 3\n        }\n    ],\n    \"success\": true\n}"
+				},
+				{
+					"name": "SuccessWithFilterByCount",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}{{client}}Bd?count=2",
+							"host": [
+								"{{url}}{{client}}Bd"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Sep 2023 10:42:04 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"items\": [\n        {\n            \"clientName\": \"Сидоров\",\n            \"countContacts\": 3\n        }\n    ],\n    \"success\": true\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://localhost:7172/",
+			"type": "string"
+		},
+		{
+			"key": "code",
+			"value": "api/v1/codes/",
+			"type": "string"
+		},
+		{
+			"key": "client",
+			"value": "api/v1/clients/",
+			"type": "string"
+		}
+	]
+}
