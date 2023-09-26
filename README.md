@@ -209,3 +209,4 @@ GO
 
 - За вызов хранимых процедур отвечает интерфейс с реализацией [BaseExecute](https://github.com/insaniaOfficialis/ITExpert/tree/main/Services/BD/Procedures/BaseExecute)
 - За накатывание миграций, внесение первоначальных данных и создание процедур с функциями отвечает интерфейс с реализацией [Initialization](https://github.com/insaniaOfficialis/ITExpert/tree/main/Services/Initialization)
+- Прикладываю также выгруженную [postman коллекцию](https://github.com/insaniaOfficialis/ITExpert/tree/main/Usefull)
