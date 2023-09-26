@@ -53,14 +53,29 @@ BEGIN
   BEGIN TRY
     DECLARE @sortKey NVARCHAR(MAX)
            ,@isAscending BIT
+           ,@skip INT
+           ,@take INT
+           ,@orderNumber INT
+           ,@code INT
+           ,@value NVARCHAR(MAX)
            ;
     
-    SELECT @sortKey = j.sortKey
-          ,@isAscending = j.isAscending
+    SELECT @sortKey = j.SortKey
+          ,@isAscending = j.IsAscending
+          ,@skip = j.[Skip]
+          ,@take = j.[Take]
+          ,@orderNumber = j.OrderNumber
+          ,@code = j.Code
+          ,@value = j.[Value]
     FROM OPENJSON(@json_in, '$')
     WITH (
-            SortKey NVARCHAR(MAX)
-           ,IsAscending BIT
+            SortKey NVARCHAR(MAX) '$.Sort.SortKey'
+           ,IsAscending BIT '$.Sort.IsAscending'
+           ,[Skip] INT
+           ,[Take] INT
+           ,OrderNumber INT
+           ,Code INT
+           ,[Value] NVARCHAR(MAX)
           ) j;
 
     DECLARE @json_out NVARCHAR(MAX) = (
@@ -68,12 +83,16 @@ BEGIN
                                              ,c.code
                                              ,c.[value]
                                        FROM Codes c
+                                       WHERE (@orderNumber IS NULL OR c.order_number = @orderNumber)
+                                       AND (@code IS NULL OR c.code = @code)
+                                       AND (@value IS NULL OR c.[value] LIKE CONCAT('%', @value, '%'))
                                        ORDER BY CASE WHEN @sortKey = 'orderNumber' AND @isAscending = 1 THEN c.order_number END
                                                ,CASE WHEN @sortKey = 'code' AND @isAscending = 1 THEN code END
                                                ,CASE WHEN @sortKey = 'value' AND @isAscending = 1 THEN [value] END
                                                ,CASE WHEN @sortKey = 'orderNumber' AND @isAscending = 0 THEN order_number END DESC
                                                ,CASE WHEN @sortKey = 'code' AND @isAscending = 0 THEN code END DESC
                                                ,CASE WHEN @sortKey = 'value' AND @isAscending = 0 THEN [value] END DESC
+                                       OFFSET ISNULL(@skip, 0) ROWS FETCH NEXT ISNULL(@take, 20) ROWS ONLY
                                        FOR JSON PATH
                                       );
 
@@ -82,8 +101,8 @@ BEGIN
   END TRY
   BEGIN CATCH
     IF @@trancount > 0
-      ROLLBACK;
-    THROW;
+		  ROLLBACK;
+		THROW;
   END CATCH;
 
 END;
@@ -95,16 +114,10 @@ GO
 
 - Postman 1:
 
-![image](https://github.com/insaniaOfficialis/ITExpert/assets/94796519/bb631f78-96d6-40aa-9470-9124333169d7)
+![image](https://github.com/insaniaOfficialis/ITExpert/assets/94796519/7e86d337-2f53-4453-bee0-5d8838b86e83)
 - Postman 2:
 
-![image](https://github.com/insaniaOfficialis/ITExpert/assets/94796519/1820b1ac-223e-4b20-a6ae-aeff469c3604)
-- Postman 3:
-
-![image](https://github.com/insaniaOfficialis/ITExpert/assets/94796519/446e8dd7-1516-4ae0-a27a-efbb5e1283ca)
-- Postman 4:
-
-![image](https://github.com/insaniaOfficialis/ITExpert/assets/94796519/71cb4eb3-0b46-4f4f-a294-00d29ae7467c)
+![image](https://github.com/insaniaOfficialis/ITExpert/assets/94796519/5126b669-9d4e-4df4-bc77-fde045a902f3)
 
 ## Тестовое задание 2
 
