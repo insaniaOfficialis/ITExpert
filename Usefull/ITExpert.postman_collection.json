@@ -126,7 +126,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}{{code}}?sort[0].SortKey=value&sort[1].SortKey=code&sort[0].IsAscending=false&sort[1].IsAscending=true",
+					"raw": "{{url}}{{code}}?sort[0].SortKey=value&sort[1].SortKey=code&sort[0].IsAscending=false&sort[1].IsAscending=true&skip=0&take=2&orderNumber=&code=12&value=1",
 					"host": [
 						"{{url}}{{code}}"
 					],
@@ -146,6 +146,26 @@
 						{
 							"key": "sort[1].IsAscending",
 							"value": "true"
+						},
+						{
+							"key": "skip",
+							"value": "0"
+						},
+						{
+							"key": "take",
+							"value": "2"
+						},
+						{
+							"key": "orderNumber",
+							"value": ""
+						},
+						{
+							"key": "code",
+							"value": "12"
+						},
+						{
+							"key": "value",
+							"value": "1"
 						}
 					]
 				}
@@ -204,6 +224,80 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"items\": [\n        {\n            \"orderNumber\": 3,\n            \"code\": 10,\n            \"value\": \"value32\"\n        },\n        {\n            \"orderNumber\": 2,\n            \"code\": 5,\n            \"value\": \"value2\"\n        },\n        {\n            \"orderNumber\": 6,\n            \"code\": 13,\n            \"value\": \"value12\"\n        },\n        {\n            \"orderNumber\": 5,\n            \"code\": 12,\n            \"value\": \"value12\"\n        },\n        {\n            \"orderNumber\": 4,\n            \"code\": 11,\n            \"value\": \"value11\"\n        },\n        {\n            \"orderNumber\": 1,\n            \"code\": 1,\n            \"value\": \"value1\"\n        }\n    ],\n    \"success\": true\n}"
+				},
+				{
+					"name": "SuccessFilter",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}{{code}}?sort[0].SortKey=value&sort[1].SortKey=code&sort[0].IsAscending=false&sort[1].IsAscending=true&skip=0&take=2&orderNumber=&code=12&value=1",
+							"host": [
+								"{{url}}{{code}}"
+							],
+							"query": [
+								{
+									"key": "sort[0].SortKey",
+									"value": "value"
+								},
+								{
+									"key": "sort[1].SortKey",
+									"value": "code"
+								},
+								{
+									"key": "sort[0].IsAscending",
+									"value": "false"
+								},
+								{
+									"key": "sort[1].IsAscending",
+									"value": "true"
+								},
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "take",
+									"value": "2"
+								},
+								{
+									"key": "orderNumber",
+									"value": ""
+								},
+								{
+									"key": "code",
+									"value": "12"
+								},
+								{
+									"key": "value",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Sep 2023 15:27:50 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"items\": [\n        {\n            \"orderNumber\": 5,\n            \"code\": 12,\n            \"value\": \"value12\"\n        }\n    ],\n    \"success\": true\n}"
 				}
 			]
 		},
@@ -213,7 +307,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}{{code}}Bd?sortKey=value&isAscending=false",
+					"raw": "{{url}}{{code}}Bd?sortKey=value&isAscending=false&skip=0&take=2&orderNumber=&code=12&value=1",
 					"host": [
 						"{{url}}{{code}}Bd"
 					],
@@ -225,6 +319,26 @@
 						{
 							"key": "isAscending",
 							"value": "false"
+						},
+						{
+							"key": "skip",
+							"value": "0"
+						},
+						{
+							"key": "take",
+							"value": "2"
+						},
+						{
+							"key": "orderNumber",
+							"value": ""
+						},
+						{
+							"key": "code",
+							"value": "12"
+						},
+						{
+							"key": "value",
+							"value": "1"
 						}
 					]
 				}
@@ -275,6 +389,72 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"items\": [\n        {\n            \"orderNumber\": 1,\n            \"code\": 1,\n            \"value\": \"value1\"\n        },\n        {\n            \"orderNumber\": 4,\n            \"code\": 11,\n            \"value\": \"value11\"\n        },\n        {\n            \"orderNumber\": 5,\n            \"code\": 12,\n            \"value\": \"value12\"\n        },\n        {\n            \"orderNumber\": 6,\n            \"code\": 13,\n            \"value\": \"value12\"\n        },\n        {\n            \"orderNumber\": 2,\n            \"code\": 5,\n            \"value\": \"value2\"\n        },\n        {\n            \"orderNumber\": 3,\n            \"code\": 10,\n            \"value\": \"value32\"\n        }\n    ],\n    \"success\": true\n}"
+				},
+				{
+					"name": "SuccessFilter",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}{{code}}Bd?sortKey=value&isAscending=false&skip=0&take=2&orderNumber=&code=12&value=1",
+							"host": [
+								"{{url}}{{code}}Bd"
+							],
+							"query": [
+								{
+									"key": "sortKey",
+									"value": "value"
+								},
+								{
+									"key": "isAscending",
+									"value": "false"
+								},
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "take",
+									"value": "2"
+								},
+								{
+									"key": "orderNumber",
+									"value": ""
+								},
+								{
+									"key": "code",
+									"value": "12"
+								},
+								{
+									"key": "value",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Sep 2023 15:27:32 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"items\": [\n        {\n            \"orderNumber\": 5,\n            \"code\": 12,\n            \"value\": \"value12\"\n        }\n    ],\n    \"success\": true\n}"
 				}
 			]
 		},

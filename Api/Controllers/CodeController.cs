@@ -66,11 +66,11 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetCode([FromQuery] List<BaseSortRequest?>? sort)
+        public async Task<IActionResult> GetCode(List<BaseSortRequest?>? sort, int? skip, int? take, int? orderNumber, int? code, string? value)
         {
             try
             {
-                var result = await _getCodes.Get(sort);
+                var result = await _getCodes.Get(sort, skip, take, orderNumber, code, value);
 
                 if (result.Success)
                 {
@@ -98,11 +98,11 @@ namespace Api.Controllers
 
         [HttpGet]
         [Route("Bd")]
-        public async Task<IActionResult> GetCode([FromQuery] BaseSortRequest? sort)
+        public async Task<IActionResult> GetCode(BaseSortRequest? sort, int? skip, int? take, int? orderNumber, int? code, string? value)
         {
             try
             {
-                var result = await _getCodesBD.Get(sort);
+                var result = await _getCodesBD.Get(sort, skip, take, orderNumber, code, value);
 
                 if (result.Success)
                 {

@@ -13,6 +13,6 @@ namespace Services.Codes.GetCodeBD
         /// </summary>
         /// <param name="sort"></param>
         /// <returns></returns>
-        Task<GetCodesRespose> Get(BaseSortRequest? sort);
+        Task<GetCodesRespose> Get(BaseSortRequest? sort, int? skip, int? take, int? orderNumber, int? code, string? value);
     }
 }

@@ -32,11 +32,12 @@ namespace Services.Codes.GetCodeBD
         /// </summary>
         /// <param name="sort"></param>
         /// <returns></returns>
-        public async Task<GetCodesRespose> Get(BaseSortRequest? sort)
+        public async Task<GetCodesRespose> Get(BaseSortRequest? sort, int? skip, int? take, int? orderNumber, int? code, string? value)
         {
             try
             {
-                var result = await _execute.Execute("get_codes", JsonConvert.SerializeObject(sort));
+                var body = JsonConvert.SerializeObject(new { Sort = sort, Skip = skip, Take = take, OrderNumber = orderNumber, Code = code, Value = value });
+                var result = await _execute.Execute("get_codes", body);
 
                 if(result == null)
                     return new GetCodesRespose(false, new(500, String.Format("Ошибка получения кодов")));
