@@ -49,8 +49,29 @@ namespace Data.Migrations
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_Dates", x => new { x.Id, x.Dt });
                 },
                 comment: "Даты клиента");
+
+            migrationBuilder.CreateTable(
+                name: "Logs",
+                columns: table => new
+                {
+                    id = table.Column<long>(type: "bigint", nullable: false, comment: "Первичный ключ")
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: false, comment: "Наименование вызываемого метода"),
+                    type = table.Column<string>(type: "nvarchar(max)", nullable: false, comment: "Тип вызываемого метода"),
+                    success = table.Column<bool>(type: "bit", nullable: false, comment: "Признак успешного выполнения"),
+                    dateStart = table.Column<DateTime>(type: "datetime2", nullable: false, comment: "Дата начала"),
+                    dateEnd = table.Column<DateTime>(type: "datetime2", nullable: true, comment: "Дата окончания"),
+                    @in = table.Column<string>(name: "in", type: "nvarchar(max)", nullable: true, comment: "Данные на вход"),
+                    @out = table.Column<string>(name: "out", type: "nvarchar(max)", nullable: true, comment: "Данные на выход")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Logs", x => x.id);
+                },
+                comment: "Логи");
 
             migrationBuilder.CreateTable(
                 name: "ClientContacts",
@@ -90,6 +111,9 @@ namespace Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Dates");
+
+            migrationBuilder.DropTable(
+                name: "Logs");
 
             migrationBuilder.DropTable(
                 name: "Clients");

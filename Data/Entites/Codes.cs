@@ -17,21 +17,21 @@ namespace Data.Entites
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("order_number")]
         [Comment("Порядковый номер")]
-        public long OrderNumber { get; private set; }
+        public long OrderNumber { get; set; }
 
         /// <summary>
         /// Код
         /// </summary>
         [Column("code")]
         [Comment("Код")]
-        public int Code { get; private set; }
+        public int Code { get; set; }
 
         /// <summary>
         /// Значение
         /// </summary>
         [Column("value")]
         [Comment("Значение кода")]
-        public string? Value { get; private set; }
+        public string? Value { get; set; }
 
         /// <summary>
         /// Пустой конструктор сущности кодов

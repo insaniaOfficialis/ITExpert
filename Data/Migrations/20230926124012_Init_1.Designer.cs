@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230925165825_Init_1")]
+    [Migration("20230926124012_Init_1")]
     partial class Init_1
     {
         /// <inheritdoc />
@@ -110,17 +110,74 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Entites.Dates", b =>
                 {
-                    b.Property<DateTime>("Dt")
-                        .HasColumnType("date")
-                        .HasComment("Дата клиента");
-
                     b.Property<long>("Id")
                         .HasColumnType("bigint")
                         .HasComment("Id клиента");
 
+                    b.Property<DateTime>("Dt")
+                        .HasColumnType("date")
+                        .HasComment("Дата клиента");
+
+                    b.HasKey("Id", "Dt");
+
                     b.ToTable("Dates", t =>
                         {
                             t.HasComment("Даты клиента");
+                        });
+                });
+
+            modelBuilder.Entity("Data.Entites.Logs", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasColumnName("id")
+                        .HasComment("Первичный ключ");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime?>("DateEnd")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("dateEnd")
+                        .HasComment("Дата окончания");
+
+                    b.Property<DateTime>("DateStart")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("dateStart")
+                        .HasComment("Дата начала");
+
+                    b.Property<string>("In")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("in")
+                        .HasComment("Данные на вход");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("name")
+                        .HasComment("Наименование вызываемого метода");
+
+                    b.Property<string>("Out")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("out")
+                        .HasComment("Данные на выход");
+
+                    b.Property<bool>("Success")
+                        .HasColumnType("bit")
+                        .HasColumnName("success")
+                        .HasComment("Признак успешного выполнения");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("type")
+                        .HasComment("Тип вызываемого метода");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Logs", t =>
+                        {
+                            t.HasComment("Логи");
                         });
                 });
 

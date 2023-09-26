@@ -12,10 +12,12 @@ namespace Data
         public DbSet<Clients> Clients { get; set; } //клиенты
         public DbSet<ClientContacts> ClientContacts { get; set; } //контакты клиентов
         public DbSet<Dates> Dates { get; set; } //контакты клиентов
+        public DbSet<Logs> Logs { get; set; } //логи
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Dates>().HasNoKey().Property(u => u.Dt).HasColumnType("date");
+            modelBuilder.Entity<Dates>().HasKey(x => new { x.Id, x.Dt });
+            modelBuilder.Entity<Dates>().Property(u => u.Dt).HasColumnType("date");
         }
 
         /// <summary>
